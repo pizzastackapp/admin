@@ -25,7 +25,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +48,9 @@
   },
   "devDependencies": {
     "@craco/craco": "^6.4.5",
+    "@graphql-codegen/cli": "^2.11.5",
+    "@graphql-codegen/typescript": "^2.7.3",
+    "@graphql-codegen/typescript-operations": "^2.5.3",
     "graphql-tag": "^2.12.6",
     "react-app-alias": "^2.2.1"
   }
