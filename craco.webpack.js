@@ -6,6 +6,10 @@ module.exports = {
       loader: 'graphql-tag/loader',
     });
 
+    webpackConfig.module.rules[1].oneOf[
+      webpackConfig.module.rules[1].oneOf.length - 1
+    ].exclude.push(/\.gql$/);
+
     return webpackConfig;
   },
 };
