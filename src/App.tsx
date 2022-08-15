@@ -11,9 +11,8 @@ import { theme } from '@app/core/theme';
 import { i18nProvider } from '@app/core/i18n';
 
 export const App = () => {
-  const [dataProvider, setDataProvider] = useState<DataProvider<string> | null>(
-    null
-  );
+  const [dataProvider, setDataProvider] =
+    useState<DataProvider<string> | null>(null);
   useEffect(() => {
     const buildDataProvider = async () => {
       const dp = await buildHasuraProvider({

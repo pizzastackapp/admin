@@ -16,5 +16,5 @@ const Template: ComponentStory<typeof CloudinaryInputUI> = (args) => (
 
 export const View = Template.bind({});
 View.args = {
-  placeholder: 'Головне зображення',
+  label: 'Головне зображення',
 };
