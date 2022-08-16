@@ -3,7 +3,7 @@ import { MenuEditTitle } from '@app/modules/menu/components/menu-edit-title/menu
 import { Edit, NumberInput, SimpleForm, TextInput } from 'react-admin';
 
 export const MenuEdit = () => (
-  <Edit title={<MenuEditTitle />}>
+  <Edit title={<MenuEditTitle />} mutationMode="pessimistic">
     <SimpleForm>
       <TextInput source="title" fullWidth label="Назва" />
       <CloudinaryInput source="image" label="Фото" />
