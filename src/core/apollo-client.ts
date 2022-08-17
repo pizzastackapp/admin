@@ -1,8 +1,9 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { config } from '@app/core/config';
 import { JWT_ADMIN_TOKEN } from '@app/core/constants';
 
-const httpLink = createHttpLink({ uri: 'http://localhost:8080/v1/graphql' });
+const httpLink = createHttpLink({ uri: config.hasuraEndpoint });
 
 const authLink = setContext((_, config) => {
   const token = localStorage.getItem(JWT_ADMIN_TOKEN);
