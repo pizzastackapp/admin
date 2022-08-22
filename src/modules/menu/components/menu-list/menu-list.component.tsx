@@ -15,7 +15,11 @@ import {
 
 const filters = [
   <TextInput source="title" label="Пошук по назві" />,
-  <ReferenceInput source="category_id" reference="categories">
+  <ReferenceInput
+    source="category_id"
+    reference="categories"
+    label="Пошук по категорії"
+  >
     <SelectInput optionText="title" label="Категорія" />
   </ReferenceInput>,
 ];
