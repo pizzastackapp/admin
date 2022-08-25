@@ -4,6 +4,9 @@ import {
   DataProvider,
   Loading,
   Resource,
+  ListGuesser,
+  EditGuesser,
+  ShowGuesser,
 } from 'react-admin';
 import { CssBaseline } from '@mui/material';
 import { useEffect, useState } from 'react';
@@ -23,6 +26,10 @@ import { Route } from 'react-router-dom';
 import { Layout } from '@app/common/components/layout/layout.component';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import CategoryIcon from '@mui/icons-material/Category';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import { OrderList } from '@app/modules/orders/components/order-list/order-list.component';
+import { OrderShow } from '@app/modules/orders/components/order-show/order-show.component';
+import { OrderEdit } from '@app/modules/orders/components/order-edit/order-edit.component';
 
 export const App = () => {
   const [dataProvider, setDataProvider] =
@@ -70,7 +77,17 @@ export const App = () => {
           options={{ label: 'Категорії' }}
           icon={CategoryIcon}
         />
+        <Resource
+          name="orders"
+          list={OrderList}
+          show={OrderShow}
+          edit={OrderEdit}
+          options={{ label: 'Замовлення' }}
+          icon={ShoppingBagIcon}
+        />
         <Resource name="settings" />
+        <Resource name="order_status" />
+        <Resource name="orders_menu" />
         <CustomRoutes>
           <Route path="/settings" element={<SettingEdit />} />
         </CustomRoutes>
