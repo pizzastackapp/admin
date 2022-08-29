@@ -7,12 +7,10 @@ import {
 } from 'react-admin';
 import { CssBaseline } from '@mui/material';
 import { useEffect, useState } from 'react';
-import buildHasuraProvider from 'ra-data-hasura';
 import { MenuList } from '@app/modules/menu/components/menu-list/menu-list.component';
 import { MenuEdit } from '@app/modules/menu/components/menu-edit/menu-edit.component';
 import { MenuCreate } from '@app/modules/menu/components/menu-create/menu-create.component';
 import { authProvider } from '@app/core/auth-provider';
-import { apolloClient } from '@app/core/apollo-client';
 import { theme } from '@app/core/theme';
 import { i18nProvider } from '@app/core/i18n';
 import { CategoryList } from '@app/modules/category/components/category-list/category-list.component';
@@ -28,6 +26,7 @@ import { OrderList } from '@app/modules/orders/components/order-list/order-list.
 import { OrderShow } from '@app/modules/orders/components/order-show/order-show.component';
 import { OrderEdit } from '@app/modules/orders/components/order-edit/order-edit.component';
 import { useGetSettingsQuery } from '@app/core/types';
+import { buildDataProvider } from '@app/core/data-provider';
 
 export const App = () => {
   const { data: settings } = useGetSettingsQuery();
@@ -35,15 +34,13 @@ export const App = () => {
   const [dataProvider, setDataProvider] =
     useState<DataProvider<string> | null>(null);
   useEffect(() => {
-    const buildDataProvider = async () => {
-      const dp = await buildHasuraProvider({
-        client: apolloClient,
-      });
+    const getDataProvider = async () => {
+      const dp = await buildDataProvider();
 
       setDataProvider(dp);
     };
 
-    buildDataProvider();
+    getDataProvider();
   }, []);
 
   if (!dataProvider || !settings) {

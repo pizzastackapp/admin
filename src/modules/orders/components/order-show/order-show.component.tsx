@@ -33,11 +33,21 @@ export const OrderShow = () => (
         target="order_id"
         label="Список замовлення"
       >
-        <Datagrid bulkActionButtons={false} header={<div />}>
-          <ReferenceField reference="menu" source="menu_id" link={false}>
+        <Datagrid bulkActionButtons={false}>
+          <ReferenceField
+            reference="menu"
+            source="menu_id"
+            link={false}
+            label="Назва"
+          >
             <TextField source="title" />
           </ReferenceField>
-          <ReferenceField reference="menu" source="menu_id" link={false}>
+          <ReferenceField
+            reference="menu"
+            source="menu_id"
+            link={false}
+            label="Ціна"
+          >
             <FunctionField
               label="Ціна"
               render={(record: Menu) => `${record.price} грн.`}
