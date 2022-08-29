@@ -4,9 +4,6 @@ import {
   DataProvider,
   Loading,
   Resource,
-  ListGuesser,
-  EditGuesser,
-  ShowGuesser,
 } from 'react-admin';
 import { CssBaseline } from '@mui/material';
 import { useEffect, useState } from 'react';
@@ -30,8 +27,11 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { OrderList } from '@app/modules/orders/components/order-list/order-list.component';
 import { OrderShow } from '@app/modules/orders/components/order-show/order-show.component';
 import { OrderEdit } from '@app/modules/orders/components/order-edit/order-edit.component';
+import { useGetSettingsQuery } from '@app/core/types';
 
 export const App = () => {
+  const { data: settings } = useGetSettingsQuery();
+
   const [dataProvider, setDataProvider] =
     useState<DataProvider<string> | null>(null);
   useEffect(() => {
@@ -46,7 +46,7 @@ export const App = () => {
     buildDataProvider();
   }, []);
 
-  if (!dataProvider) {
+  if (!dataProvider || !settings) {
     return <Loading />;
   }
 

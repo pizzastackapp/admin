@@ -2156,7 +2156,7 @@ export type CloudinarySignatureQuery = { __typename?: 'query_root', cloudinarySi
 export type GetSettingsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetSettingsQuery = { __typename?: 'query_root', settings: Array<{ __typename?: 'settings', id: any }> };
+export type GetSettingsQuery = { __typename?: 'query_root', settings: Array<{ __typename?: 'settings', id: any, drinks_category?: any | null }> };
 
 
 export const AdminGetMeDocument = gql`
@@ -2272,6 +2272,7 @@ export const GetSettingsDocument = gql`
     query GetSettings {
   settings {
     id
+    drinks_category
   }
 }
     `;
