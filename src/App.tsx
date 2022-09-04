@@ -18,6 +18,7 @@ import { menuResource } from '@app/modules/menu/menu.resource';
 import { categoryResource } from '@app/modules/category/category.resource';
 import { orderResource } from '@app/modules/orders/order.resource';
 import { useGetSettingsQuery } from '@app/core/types';
+import { Dashboard } from '@app/modules/dashboard/components/dashboard/dashboard.component';
 
 export const App = () => {
   const { data: settings } = useGetSettingsQuery();
@@ -48,6 +49,7 @@ export const App = () => {
         requireAuth
         theme={theme}
         layout={Layout}
+        dashboard={Dashboard}
       >
         <Resource {...menuResource} />
         <Resource {...categoryResource} />
