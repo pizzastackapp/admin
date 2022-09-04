@@ -2,6 +2,7 @@ import { Orders } from '@app/core/types';
 import {
   ChipField,
   Datagrid,
+  DateField,
   FunctionField,
   List,
   ReferenceField,
@@ -21,7 +22,11 @@ const filters = [
 ];
 
 export const OrderList = () => (
-  <List exporter={false} filters={filters}>
+  <List
+    exporter={false}
+    filters={filters}
+    sort={{ field: 'created_at', order: 'DESC' }}
+  >
     <Datagrid rowClick="show" bulkActionButtons={false}>
       <TextField source="client_address" label="Адреса" />
       <TextField source="client_name" label="Ім'я" />
@@ -34,6 +39,12 @@ export const OrderList = () => (
       >
         <ChipField source="label" />
       </ReferenceField>
+      <DateField
+        source="created_at"
+        label="Створено"
+        showTime
+        options={{ timeZone: 'Europe/Kiev' }}
+      />
       <FunctionField
         label="Сума"
         source="sum"

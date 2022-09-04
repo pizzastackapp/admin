@@ -57,6 +57,7 @@ export const App = () => {
         <Resource name="settings" />
         <Resource name="order_status" />
         <Resource name="orders_menu" />
+        <Resource name="last_week_orders" />
         <CustomRoutes>
           <Route path="/settings" element={<SettingEdit />} />
         </CustomRoutes>

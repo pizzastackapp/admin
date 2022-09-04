@@ -18,32 +18,39 @@ export const View = Template.bind({});
 View.args = {
   data: [
     {
-      date: '04/09',
-      total: 4000,
+      count: 3,
+      date: '2022-08-29',
+      sum: 892,
     },
     {
-      date: '03/09',
-      total: 3000,
+      count: 9,
+      date: '2022-08-30',
+      sum: 2735,
     },
     {
-      date: '02/09',
-      total: 2000,
+      count: 7,
+      date: '2022-08-31',
+      sum: 1864,
     },
     {
-      date: '01/09',
-      total: 2780,
+      count: 1,
+      date: '2022-09-01',
+      sum: 241,
     },
     {
-      date: '31/08',
-      total: 1890,
+      count: 6,
+      date: '2022-09-02',
+      sum: 1710,
     },
     {
-      date: '30/08',
-      total: 2390,
+      count: 8,
+      date: '2022-09-03',
+      sum: 2331,
     },
     {
-      date: '29/08',
-      total: 3490,
+      count: 45,
+      date: '2022-09-04',
+      sum: 13464,
     },
-  ].reverse(),
+  ],
 };
