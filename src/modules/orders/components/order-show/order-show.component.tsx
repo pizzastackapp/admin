@@ -17,6 +17,14 @@ export const OrderShow = () => (
         source="sum"
         render={(record: Orders) => `${record.sum} грн.`}
       />
+      <ReferenceField
+        reference="payment_types"
+        source="payment_type"
+        label="Оплата"
+        link={false}
+      >
+        <TextField source="label" />
+      </ReferenceField>
       <TextField source="client_address" label="Адреса" />
       <TextField source="client_name" label="Ім'я" />
       <TextField source="client_phone" label="Телефон" />
@@ -28,6 +36,11 @@ export const OrderShow = () => (
       >
         <TextField source="label" />
       </ReferenceField>
+      <FunctionField
+        label="Коментар"
+        source="comment"
+        render={(record: Orders) => record.comment ?? 'Коментар пустий'}
+      />
       <ReferenceManyField
         reference="orders_menu"
         target="order_id"
