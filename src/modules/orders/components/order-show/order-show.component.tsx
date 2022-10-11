@@ -66,6 +66,7 @@ export const OrderShow = () => (
               render={(record: Menu) => `${record.price} грн.`}
             />
           </ReferenceField>
+          <TextField source="amount" label="Кількість" />
         </Datagrid>
       </ReferenceManyField>
     </SimpleShowLayout>
