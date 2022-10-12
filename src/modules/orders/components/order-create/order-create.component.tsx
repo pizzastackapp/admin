@@ -1,7 +1,10 @@
-import { ManyToManyInput } from '@app/common/components/many-to-many-input/many-to-many-input.component';
-import { useManyToManyInput } from '@app/common/hooks/useManyToManyInput';
 import { Order_Status_Enum } from '@app/core/types';
-import { OrderForm } from '@app/modules/orders/order.types';
+import { MenuOrderInput } from '@app/modules/orders/components/menu-order-input/menu-order-input.component';
+import { useMenuOrderInput } from '@app/modules/orders/hooks/use-menu-order-input.hook';
+import {
+  JoinedOrdersMenuItem,
+  OrderForm,
+} from '@app/modules/orders/order.types';
 import { useRef } from 'react';
 import {
   Create,
@@ -13,13 +16,9 @@ import {
 } from 'react-admin';
 
 export const OrderCreate = () => {
-  const { mutateJoinResource, fieldsProps } = useManyToManyInput({
-    joinResource: 'orders_menu',
-    resourceField: 'order_id',
-    referenceField: 'menu_id',
-  });
+  const { mutate } = useMenuOrderInput();
 
-  const newReferences = useRef<string[]>([]);
+  const newReferences = useRef<JoinedOrdersMenuItem[]>([]);
   const transform = (data: OrderForm) => {
     newReferences.current = data.joined_orders_menu;
     return data;
@@ -27,7 +26,7 @@ export const OrderCreate = () => {
 
   const redirect = useRedirect();
   const onSuccess = async (data: Omit<OrderForm, 'joined_orders_menu'>) => {
-    await mutateJoinResource({
+    await mutate({
       id: data.id,
       newReferences: newReferences.current,
     });
@@ -52,12 +51,7 @@ export const OrderCreate = () => {
             disabled
           />
         </ReferenceInput>
-        <ManyToManyInput
-          label="Меню"
-          reference="menu"
-          source="joined_orders_menu"
-          {...fieldsProps}
-        />
+        <MenuOrderInput />
       </SimpleForm>
     </Create>
   );
