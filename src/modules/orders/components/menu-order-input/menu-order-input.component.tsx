@@ -46,17 +46,17 @@ export const MenuOrderInput: FC<MenuOrderInputProps> = ({}) => {
   }, [joinedEntities]);
 
   return (
-    <ArrayInput source="joined_orders_menu" label="Замолвення">
-      <SimpleFormIterator>
+    <ArrayInput source="joined_orders_menu" label="Замовлення">
+      <SimpleFormIterator inline>
         <AutocompleteInput
           choices={menuItems.data}
           translateChoice={false}
           optionText="title"
           source="menu_id"
-          fullWidth
           label="Позиція меню"
+          sx={{ width: 600 }}
         />
-        <NumberInput source="amount" fullWidth label="Кількість" />
+        <NumberInput source="amount" label="Кількість" />
       </SimpleFormIterator>
     </ArrayInput>
   );
