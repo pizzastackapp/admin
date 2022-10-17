@@ -30,6 +30,18 @@ export const useMenuOrderInput = () => {
         !newReferences.some((ref) => ref.id === prevReference.id)
     );
 
+    const editedReferences = newReferences.filter((newRef) => {
+      const prevRef = prevReferences.data?.find((ref) => ref.id === newRef.id);
+
+      if (!prevRef) {
+        return false;
+      }
+
+      return (
+        newRef.menu_id !== prevRef.menu_id || newRef.amount !== prevRef.amount
+      );
+    });
+
     if (addedReferences.length > 0) {
       await Promise.all(
         addedReferences.map((reference) => {
@@ -51,6 +63,28 @@ export const useMenuOrderInput = () => {
         (removedReference) => removedReference.id
       );
       await dataProvider.deleteMany(joinResource, { ids: removedIds });
+    }
+
+    if (editedReferences.length > 0) {
+      await Promise.all(
+        editedReferences.map((reference) => {
+          const data = {
+            id: reference.id,
+            [referenceField]: reference.menu_id,
+            amount: reference.amount,
+          };
+
+          const previousData = prevReferences.data.find(
+            (prefRef) => prefRef.id === reference.id
+          );
+
+          return dataProvider.update(joinResource, {
+            id: reference.id!,
+            data,
+            previousData,
+          });
+        })
+      );
     }
   };
 
