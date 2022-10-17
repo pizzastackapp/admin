@@ -13712,22 +13712,6 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-ra-core@^4.2.7:
-  version "4.2.7"
-  resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-4.2.7.tgz#56f23f6ab5c5eab9d09ea6d74c07d6daae2c60ea"
-  integrity sha512-DFrQXsajMv95d2juhXpArDz2I7FVU6x8YtaJpmGaFsClGYK3qcMOfE+duVFdxpihczsihg4YSPumsvNtdtlg6w==
-  dependencies:
-    clsx "^1.1.1"
-    date-fns "^2.19.0"
-    eventemitter3 "^4.0.7"
-    inflection "~1.12.0"
-    jsonexport "^3.2.0"
-    lodash "~4.17.5"
-    prop-types "^15.6.1"
-    query-string "^7.1.1"
-    react-is "^17.0.2"
-    react-query "^3.32.1"
-
 ra-core@^4.4.3:
   version "4.4.3"
   resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-4.4.3.tgz#8527f3ad02ec92f7a83c281d45e26b8ed64847ae"
@@ -13763,14 +13747,6 @@ ra-data-hasura@^0.5.2:
     lodash "^4.17.21"
     ra-data-graphql "^4.2.0"
 
-ra-i18n-polyglot@^4.2.6:
-  version "4.2.7"
-  resolved "https://registry.yarnpkg.com/ra-i18n-polyglot/-/ra-i18n-polyglot-4.2.7.tgz#c6de4e73eece7f454635cb62a09f06360f4b1f5a"
-  integrity sha512-jCoGcMFCh6HZJ4PtGcFRtF80V+w6h8O3NIxXAyLAmAQWvmczyvA8ARFO3wR/PzbCbSRhlJSprL02poeFfC+fGQ==
-  dependencies:
-    node-polyglot "^2.2.2"
-    ra-core "^4.2.7"
-
 ra-i18n-polyglot@^4.4.3:
   version "4.4.3"
   resolved "https://registry.yarnpkg.com/ra-i18n-polyglot/-/ra-i18n-polyglot-4.4.3.tgz#1ab40e1530fdca993044f98ce3ba565d18d175b5"
@@ -13786,10 +13762,10 @@ ra-language-english@^4.4.3:
   dependencies:
     ra-core "^4.4.3"
 
-ra-language-ukrainian@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ra-language-ukrainian/-/ra-language-ukrainian-2.1.0.tgz#bc0036086648f63577eb9b5cb00d088ddc03e48e"
-  integrity sha512-w//ZQ5wm/9Slau1x1fPdrWwAYAmvqPs4OuPEtc4IaxJQoa+bN4zcotFkPstvEj587qqUnVVrF4V9nfL4xvEGLA==
+ra-language-ukrainian@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/ra-language-ukrainian/-/ra-language-ukrainian-2.2.0.tgz#898ed6fdb977495c277e51b50fcb0c0c09cbe080"
+  integrity sha512-CV97uHZHY2SYHKONinbvh+PQq8tq+1T4NowgSzq5p0TD0M15PB57CFCPTHvQ+U7hND1BkdRC0jUI4kUVdkM9RA==
 
 ra-ui-materialui@^4.4.3:
   version "4.4.3"
