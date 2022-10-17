@@ -1,13 +1,11 @@
 import { Orders, Order_Status_Enum } from '@app/core/types';
 import { InlineStatusEdit } from '@app/modules/orders/components/inline-status-edit/inline-status-edit.component';
 import {
-  ChipField,
   Datagrid,
   DateField,
   EditButton,
   FunctionField,
   List,
-  ReferenceField,
 } from 'react-admin';
 
 export const NewOrders = () => {

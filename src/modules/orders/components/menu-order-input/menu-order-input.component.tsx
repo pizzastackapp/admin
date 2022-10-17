@@ -1,13 +1,10 @@
 import { getManyReferenceFilter } from '@app/common/data/get-many-reference-filter';
-import { Menu } from '@app/core/types';
 import { FC, useEffect, useState } from 'react';
 import {
   ArrayInput,
   AutocompleteInput,
   NumberInput,
-  SimpleForm,
   SimpleFormIterator,
-  TextInput,
   useDataProvider,
   useGetList,
   useRecordContext,
@@ -16,7 +13,7 @@ import { useFormContext } from 'react-hook-form';
 
 interface MenuOrderInputProps {}
 
-export const MenuOrderInput: FC<MenuOrderInputProps> = ({}) => {
+export const MenuOrderInput: FC<MenuOrderInputProps> = () => {
   const record = useRecordContext();
   const dataProvider = useDataProvider();
   const { setValue } = useFormContext();
