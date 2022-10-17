@@ -1,4 +1,5 @@
 import { Orders, Order_Status_Enum } from '@app/core/types';
+import { InlineStatusEdit } from '@app/modules/orders/components/inline-status-edit/inline-status-edit.component';
 import {
   ChipField,
   Datagrid,
@@ -24,14 +25,7 @@ export const NewOrders = () => {
       }}
     >
       <Datagrid bulkActionButtons={false} rowClick="show">
-        <ReferenceField
-          reference="order_status"
-          source="status"
-          label="Статус замовлення"
-          link={false}
-        >
-          <ChipField source="label" />
-        </ReferenceField>
+        <InlineStatusEdit label="Статус замовлення" />
         <DateField
           source="created_at"
           label="Створено"
