@@ -6,7 +6,18 @@ const lang = {
     ...ua.ra,
     configurable: {
       ...ua.ra.configurable,
-      customize: 'customize',
+      customize: 'Customize',
+      configureMode: 'Configure this page',
+      inspector: {
+        title: 'Inspector',
+        content: 'Hover the application UI elements to configure them',
+        reset: 'Reset Settings',
+      },
+      SimpleList: {
+        primaryText: 'Primary text',
+        secondaryText: 'Secondary text',
+        tertiaryText: 'Tertiary text',
+      },
     },
   },
 };
