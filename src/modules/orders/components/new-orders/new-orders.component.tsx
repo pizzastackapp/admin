@@ -6,6 +6,8 @@ import {
   EditButton,
   FunctionField,
   List,
+  ReferenceField,
+  TextField,
 } from 'react-admin';
 
 export const NewOrders = () => {
@@ -24,6 +26,14 @@ export const NewOrders = () => {
     >
       <Datagrid bulkActionButtons={false} rowClick="show">
         <InlineStatusEdit label="Статус замовлення" />
+        <ReferenceField
+          reference="payment_status"
+          source="payment_status"
+          label="Статус замовлення"
+          link={false}
+        >
+          <TextField source="label" />
+        </ReferenceField>
         <DateField
           source="created_at"
           label="Створено"
