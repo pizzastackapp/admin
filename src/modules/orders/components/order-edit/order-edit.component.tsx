@@ -1,5 +1,5 @@
-import { ManyToManyInput } from '@app/common/components/many-to-many-input/many-to-many-input.component';
-import { useManyToManyInput } from '@app/common/hooks/useManyToManyInput';
+import { MenuOrderInput } from '@app/modules/orders/components/menu-order-input/menu-order-input.component';
+import { useMenuOrderInput } from '@app/modules/orders/hooks/use-menu-order-input.hook';
 import { OrderForm } from '@app/modules/orders/order.types';
 import {
   Edit,
@@ -10,14 +10,10 @@ import {
 } from 'react-admin';
 
 export const OrderEdit = () => {
-  const { mutateJoinResource, fieldsProps } = useManyToManyInput({
-    joinResource: 'orders_menu',
-    resourceField: 'order_id',
-    referenceField: 'menu_id',
-  });
+  const { mutate } = useMenuOrderInput();
 
   const transform = async (data: OrderForm) => {
-    await mutateJoinResource({
+    await mutate({
       id: data.id,
       newReferences: data.joined_orders_menu,
     });
@@ -34,12 +30,10 @@ export const OrderEdit = () => {
         <ReferenceInput source="status" reference="order_status">
           <SelectInput optionText="label" label="Статус замовлення" />
         </ReferenceInput>
-        <ManyToManyInput
-          label="Меню"
-          reference="menu"
-          source="joined_orders_menu"
-          {...fieldsProps}
-        />
+        <ReferenceInput source="payment_status" reference="payment_status">
+          <SelectInput optionText="label" label="Статус оплати" />
+        </ReferenceInput>
+        <MenuOrderInput />
       </SimpleForm>
     </Edit>
   );
