@@ -7,6 +7,7 @@ import {
 import AdminLoginQueryGql from '@app/core/graphql/admin-login.gql';
 import AdminGetMeQueryGql from '@app/core/graphql/admin-get-me.gql';
 import { JWT_ADMIN_TOKEN } from '@app/core/constants';
+import OneSignalReact from 'react-onesignal';
 
 export const authProvider = {
   login: async (variables: AdminLoginQueryVariables) => {
@@ -25,6 +26,7 @@ export const authProvider = {
     localStorage.setItem(JWT_ADMIN_TOKEN, data.adminLogin.accessToken);
   },
   logout: () => {
+    OneSignalReact.removeExternalUserId();
     localStorage.removeItem(JWT_ADMIN_TOKEN);
     return Promise.resolve();
   },
@@ -42,6 +44,8 @@ export const authProvider = {
     const { data } = await apolloClient.query<AdminGetMeQuery>({
       query: AdminGetMeQueryGql,
     });
+
+    OneSignalReact.setExternalUserId(data.adminGetMe!.id);
 
     return Promise.resolve({
       id: data.adminGetMe!.id,

@@ -1,10 +1,12 @@
 import { CloudinaryInputUI } from '@app/common/components/cloudinary-input-ui/cloudinary-input-ui.component';
-import { useCloudinarySignatureQuery } from '@app/core/types';
+import {
+  useCloudinarySignatureQuery,
+  useGetSettingsQuery,
+} from '@app/core/types';
 import { FC } from 'react';
 import { InputProps, useInput, useNotify } from 'react-admin';
 import axios, { AxiosError } from 'axios';
 import { CloudinaryUploadDTO } from '@app/common/components/cloudinary-input/cloudinary-upload.dto';
-import { config } from '@app/core/config';
 
 export const CloudinaryInput: FC<InputProps> = (props) => {
   const { label, source } = props;
@@ -12,6 +14,7 @@ export const CloudinaryInput: FC<InputProps> = (props) => {
   const { data: cloudSignature, loading } = useCloudinarySignatureQuery({
     fetchPolicy: 'network-only',
   });
+  const { data: settings } = useGetSettingsQuery({ fetchPolicy: 'cache-only' });
 
   const notify = useNotify();
 
@@ -48,7 +51,7 @@ export const CloudinaryInput: FC<InputProps> = (props) => {
   const {
     field: { value: categoryId },
   } = useInput({ source: 'category_id' });
-  const isDrinkCategory = categoryId === config.drinksCategoryId;
+  const isDrinkCategory = categoryId === settings?.settings[0].drinks_category;
 
   return (
     <CloudinaryInputUI
