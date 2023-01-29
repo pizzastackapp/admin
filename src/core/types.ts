@@ -277,6 +277,7 @@ export type Bigint_Comparison_Exp = {
 /** columns and relationships of "categories" */
 export type Categories = {
   __typename?: 'categories';
+  emoji?: Maybe<Scalars['String']>;
   id: Scalars['uuid'];
   /** An array relationship */
   menu_items: Array<Menu>;
@@ -333,6 +334,7 @@ export type Categories_Bool_Exp = {
   _and?: InputMaybe<Array<Categories_Bool_Exp>>;
   _not?: InputMaybe<Categories_Bool_Exp>;
   _or?: InputMaybe<Array<Categories_Bool_Exp>>;
+  emoji?: InputMaybe<String_Comparison_Exp>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
   menu_items?: InputMaybe<Menu_Bool_Exp>;
   slug?: InputMaybe<String_Comparison_Exp>;
@@ -347,6 +349,7 @@ export enum Categories_Constraint {
 
 /** input type for inserting data into table "categories" */
 export type Categories_Insert_Input = {
+  emoji?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['uuid']>;
   menu_items?: InputMaybe<Menu_Arr_Rel_Insert_Input>;
   slug?: InputMaybe<Scalars['String']>;
@@ -356,6 +359,7 @@ export type Categories_Insert_Input = {
 /** aggregate max on columns */
 export type Categories_Max_Fields = {
   __typename?: 'categories_max_fields';
+  emoji?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
   slug?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
@@ -364,6 +368,7 @@ export type Categories_Max_Fields = {
 /** aggregate min on columns */
 export type Categories_Min_Fields = {
   __typename?: 'categories_min_fields';
+  emoji?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
   slug?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
@@ -394,6 +399,7 @@ export type Categories_On_Conflict = {
 
 /** Ordering options when selecting data from "categories". */
 export type Categories_Order_By = {
+  emoji?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   menu_items_aggregate?: InputMaybe<Menu_Aggregate_Order_By>;
   slug?: InputMaybe<Order_By>;
@@ -408,6 +414,8 @@ export type Categories_Pk_Columns_Input = {
 /** select columns of table "categories" */
 export enum Categories_Select_Column {
   /** column name */
+  Emoji = 'emoji',
+  /** column name */
   Id = 'id',
   /** column name */
   Slug = 'slug',
@@ -417,6 +425,7 @@ export enum Categories_Select_Column {
 
 /** input type for updating data in table "categories" */
 export type Categories_Set_Input = {
+  emoji?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['uuid']>;
   slug?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
@@ -424,6 +433,8 @@ export type Categories_Set_Input = {
 
 /** update columns of table "categories" */
 export enum Categories_Update_Column {
+  /** column name */
+  Emoji = 'emoji',
   /** column name */
   Id = 'id',
   /** column name */

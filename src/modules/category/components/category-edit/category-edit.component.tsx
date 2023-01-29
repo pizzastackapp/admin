@@ -6,6 +6,7 @@ export const CategoryEdit = () => (
     <SimpleForm>
       <TextInput source="title" label="Назва" />
       <TextInput source="slug" label="Слаг" />
+      <TextInput source="emoji" label="Емодзі" />
     </SimpleForm>
   </Edit>
 );
